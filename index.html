@@ -29,7 +29,7 @@
             padding: 0 20px 40px 20px;
         }
 
-        /* Header Section (ปรับให้เหมือน FAQ) */
+        /* Header Section */
         .header {
             background-color: var(--primary-color);
             color: var(--bg-color);
@@ -230,9 +230,14 @@
             text-decoration: none;
             font-weight: 600;
             font-size: 16px;
-            margin-top: 35px;
+            margin-top: 20px;
             box-shadow: 0 4px 10px rgba(80, 139, 43, 0.3);
             box-sizing: border-box;
+            transition: transform 0.2s;
+        }
+
+        .cta-btn:active {
+            transform: scale(0.98);
         }
 
     </style>
@@ -240,7 +245,7 @@
 <body>
 
     <div class="header">
-        <h1>รายละเอียดคอร์สเรียน (Course Details) & ราคา (Pricing)</h1>
+        <h1>รายละเอียดคอร์สเรียน & ราคา</h1>
         <p>WIT ONE Tutoring | เรียนออนไลน์ สไตล์พี่สอนน้อง</p>
     </div>
 
@@ -265,6 +270,7 @@
             </div>
         </div>
 
+        <!-- หมวดหมู่ระดับชั้น -->
         <h2 class="section-title">ระดับชั้นที่เปิดสอน</h2>
 
         <div class="course-card">
@@ -302,11 +308,13 @@
             <div class="note">*หมายเหตุ: TGAT 2&3 นับเป็น 1 วิชา / TPAT 1 Part 2&3 นับเป็น 1 วิชา</div>
         </div>
 
+        <!-- ตารางราคาแพ็กเกจ -->
         <h2 class="section-title">ราคาและแพ็กเกจ</h2>
         <p style="text-align: center; font-size: 13px; color: #666; margin-bottom: 20px;">
-            ชำระเงินค่าเรียนล่วงหน้า <span style="color: var(--accent-green); font-weight: 600;">แบ่งชำระได้ทุก ๆ 5 ชม.</span>
+            ชำระค่าเรียนล่วงหน้าบางส่วน <span style="color: var(--accent-green); font-weight: 600;">ส่วนที่เหลือแบ่งชำระเป็นงวดในวันเรียนได้</span>
         </p>
 
+        <!-- Foundation Price -->
         <div class="pricing-table-container">
             <div class="pricing-header">🧸 ตารางราคา Foundation (ประถม)</div>
             <div class="table-responsive">
@@ -345,6 +353,7 @@
             </div>
         </div>
 
+        <!-- Intermediate Price -->
         <div class="pricing-table-container">
             <div class="pricing-header gold">🎒 ตารางราคา Intermediate (ม.ต้น)</div>
             <div class="table-responsive">
@@ -383,6 +392,7 @@
             </div>
         </div>
 
+        <!-- Advanced Price -->
         <div class="pricing-table-container">
             <div class="pricing-header green">🎓 ตารางราคา Advanced (ม.ปลาย/สอบเข้า)</div>
             <div class="table-responsive">
@@ -425,7 +435,7 @@
             * ราคา 1 ชั่วโมงแรกที่ชำระไป สามารถนำมาหักเป็นส่วนลดเมื่อสมัครคอร์ส 10 หรือ 20 ชั่วโมงต่อได้ทันที
         </div>
 
-        <a href="https://lin.ee/PXN3EWz" class="cta-btn">💬 สอบถามรายละเอียดเพิ่มเติม / สมัครเรียน</a>
+        <a href="https://lin.ee/PXN3EWz" class="cta-btn">💬 ทักแชทสอบถามคิว / จองเวลาเรียน</a>
 
     </div>
 
