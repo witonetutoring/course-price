@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>คอร์สเรียนและราคา | WIT ONE Tutoring</title>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #fbfaf6; /* ครีมอ่อน */
+            --primary-color: #142a46; /* น้ำเงินกรมท่า */
+            --accent-gold: #ab9575; /* ทอง/เบจ */
+            --accent-green: #508b2b; /* เขียว */
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Prompt', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--primary-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0 20px 40px 20px;
+        }
+
+        /* Header Section */
+        .header {
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 40px 20px;
+            border-bottom: 5px solid var(--accent-gold);
+            border-radius: 0 0 20px 20px;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 26px;
+            font-weight: 700;
+        }
+
+        .header p {
+            margin: 10px 0 0;
+            font-size: 14px;
+            font-weight: 300;
+            color: #d1d5db;
+        }
+
+        /* Section Titles */
+        .section-title {
+            font-size: 20px;
+            font-weight: 600;
+            text-align: center;
+            margin: 40px 0 20px 0;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-gold);
+            margin: 8px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Info Highlights */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .info-box {
+            background: var(--white);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 13px;
+            font-weight: 500;
+            border: 1px solid #eee;
+            box-shadow: 0 2px 5px rgba(20, 42, 70, 0.03);
+        }
+
+        .info-box span {
+            display: block;
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        /* Course Details Card */
+        .course-card {
+            background-color: var(--white);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(20, 42, 70, 0.05);
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .course-card.gold-border { border-top-color: var(--accent-gold); }
+        .course-card.green-border { border-top-color: var(--accent-green); }
+
+        .course-card h3 {
+            margin: 0 0 10px 0;
+            font-size: 18px;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .course-card p.desc {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .subject-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .subject-list li {
+            font-size: 14px;
+            margin-bottom: 8px;
+            padding-left: 24px;
+            position: relative;
+        }
+
+        .subject-list li::before {
+            content: '▪️';
+            position: absolute;
+            left: 0;
+            color: var(--accent-gold);
+            font-size: 10px;
+            top: 2px;
+        }
+
+        .note {
+            font-size: 12px;
+            color: #888;
+            background: #f5f5f5;
+            padding: 8px 12px;
+            border-radius: 6px;
+            margin-top: 15px;
+        }
+
+        /* Pricing Table Design */
+        .pricing-table-container {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(20, 42, 70, 0.05);
+            margin-bottom: 25px;
+        }
+
+        .pricing-header {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 15px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 16px;
+        }
+        
+        .pricing-header.gold { background-color: var(--accent-gold); }
+        .pricing-header.green { background-color: var(--accent-green); }
+
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f8f9fa;
+            color: var(--primary-color);
+            font-weight: 600;
+            padding: 12px 5px;
+            border-bottom: 2px solid #eaeaea;
+            font-size: 12px;
+        }
+
+        td {
+            padding: 12px 5px;
+            border-bottom: 1px solid #eaeaea;
+            color: #444;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        td:first-child {
+            font-weight: 500;
+            color: var(--primary-color);
+            text-align: left;
+            padding-left: 15px;
+        }
+
+        .price-highlight {
+            font-weight: 600;
+            color: var(--accent-green);
+        }
+
+        /* CTA Button */
+        .cta-btn {
+            display: block;
+            width: 100%;
+            text-align: center;
+            background-color: var(--accent-green);
+            color: var(--white);
+            padding: 16px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            margin-top: 35px;
+            box-shadow: 0 4px 10px rgba(80, 139, 43, 0.3);
+            box-sizing: border-box;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>รายละเอียดคอร์สเรียน & ราคา</h1>
+        <p>WIT ONE Tutoring | เรียนออนไลน์สไตล์พี่สอนน้อง</p>
+    </div>
+
+    <div class="container">
+        
+        <div class="info-grid">
+            <div class="info-box">
+                <span>💻</span>
+                Live Online 100%<br><small style="color:#888;">ผ่าน Zoom / Meet</small>
+            </div>
+            <div class="info-box">
+                <span>⏰</span>
+                จัดตารางเองได้<br><small style="color:#888;">ตามวัน-เวลาที่สะดวก</small>
+            </div>
+            <div class="info-box">
+                <span>👩🏻‍🏫</span>
+                พี่ติวเตอร์เฉพาะทาง<br><small style="color:#888;">1 คน ดูแล 1 วิชา</small>
+            </div>
+            <div class="info-box">
+                <span>📚</span>
+                ฟรี! เอกสารประกอบ<br><small style="color:#888;">พี่ติวเตอร์จัดเตรียมให้</small>
+            </div>
+        </div>
+
+        <!-- หมวดหมู่ระดับชั้น -->
+        <h2 class="section-title">ระดับชั้นที่เปิดสอน</h2>
+
+        <div class="course-card">
+            <h3>🧸 Foundation | ประถม</h3>
+            <p class="desc">เน้นปูพื้นฐานให้แน่น สร้างความเข้าใจอย่างเป็นระบบ และเรียนอย่างสนุกสนานไม่กดดัน</p>
+            <ul class="subject-list">
+                <li>คณิตศาสตร์</li>
+                <li>ภาษาอังกฤษ</li>
+                <li>ภาษาไทย</li>
+                <li>วิทยาศาสตร์</li>
+                <li>สังคมศึกษา</li>
+            </ul>
+        </div>
+
+        <div class="course-card gold-border">
+            <h3>🎒 Intermediate | ม.ต้น</h3>
+            <p class="desc">ปรับพื้นฐานเนื้อหาให้เข้มข้นขึ้น ติวเพิ่มเกรดในห้องเรียน หรือเตรียมพร้อมสำหรับการสอบเลื่อนชั้น</p>
+            <ul class="subject-list">
+                <li>คณิตศาสตร์</li>
+                <li>ภาษาอังกฤษ</li>
+                <li>ภาษาไทย</li>
+                <li>สังคมศึกษา</li>
+                <li>วิทยาศาสตร์และเทคโนโลยี</li>
+            </ul>
+        </div>
+
+        <div class="course-card green-border">
+            <h3>🎓 Advanced | ม.ปลาย & สอบเข้า</h3>
+            <p class="desc">เจาะลึกเนื้อหาเฉพาะทาง ตะลุยโจทย์ยาก หรือเตรียมตัวสู้ศึกสนามสอบแข่งขัน</p>
+            <ul class="subject-list">
+                <li><b>วิชาปกติ:</b> คณิตศาสตร์ (พื้นฐาน+เพิ่มเติม), ภาษาอังกฤษ, ภาษาไทย, สังคมศึกษา, ฟิสิกส์, เคมี, ชีววิทยา</li>
+                <li><b>ติวสอบเข้า ม.4</b></li>
+                <li><b>สอบมาตรฐาน:</b> NETSAT / A-Level / TGAT / TPAT</li>
+            </ul>
+            <div class="note">*หมายเหตุ: TGAT 2&3 นับเป็น 1 วิชา / TPAT 1 Part 2&3 นับเป็น 1 วิชา</div>
+        </div>
+
+        <!-- ตารางราคาแพ็กเกจ -->
+        <h2 class="section-title">ราคาและแพ็กเกจ</h2>
+        <p style="text-align: center; font-size: 13px; color: #666; margin-bottom: 20px;">
+            ชำระเงินล็อกคิวล่วงหน้า <span style="color: var(--accent-green); font-weight: 600;">แบ่งชำระได้ทุก ๆ 5 ชม.</span>
+        </p>
+
+        <!-- Foundation Price -->
+        <div class="pricing-table-container">
+            <div class="pricing-header">🧸 ตารางราคา Foundation (ประถม)</div>
+            <div class="table-responsive">
+                <table>
+                    <tr>
+                        <th>รูปแบบคลาส</th>
+                        <th>1 ชม.<br><small>(ราคารวม)</small></th>
+                        <th>10 ชม.<br><small>(ราคา/คน)</small></th>
+                        <th>20 ชม.<br><small>(ราคา/คน)</small></th>
+                    </tr>
+                    <tr>
+                        <td>เดี่ยว (1 คน)</td>
+                        <td>200.-</td>
+                        <td class="price-highlight">1,600.-</td>
+                        <td class="price-highlight">2,800.-</td>
+                    </tr>
+                    <tr>
+                        <td>กลุ่ม 2 คน</td>
+                        <td>300.-</td>
+                        <td class="price-highlight">1,300.-</td>
+                        <td class="price-highlight">2,200.-</td>
+                    </tr>
+                    <tr>
+                        <td>กลุ่ม 3 คน</td>
+                        <td>360.-</td>
+                        <td class="price-highlight">1,000.-</td>
+                        <td class="price-highlight">1,700.-</td>
+                    </tr>
+                    <tr>
+                        <td>กลุ่ม 4 คน</td>
+                        <td>400.-</td>
+                        <td class="price-highlight">800.-</td>
+                        <td class="price-highlight">1,500.-</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- Intermediate Price -->
+        <div class="pricing-table-container">
+            <div class="pricing-header gold">🎒 ตารางราคา Intermediate (ม.ต้น)</div>
+            <div class="table-responsive">
+                <table>
+                    <tr>
+                        <th>รูปแบบคลาส</th>
+                        <th>1 ชม.<br><small>(ราคารวม)</small></th>
+                        <th>10 ชม.<br><small>(ราคา/คน)</small></th>
+                        <th>20 ชม.<br><small>(ราคา/คน)</small></th>
+                    </tr>
+                    <tr>
+                        <td>เดี่ยว (1 คน)</td>
+                        <td>250.-</td>
+                        <td class="price-highlight">2,000.-</td>
+                        <td class="price-highlight">3,600.-</td>
+                    </tr>
+                    <tr>
+                        <td>กลุ่ม 2 คน</td>
+                        <td>400.-</td>
+                        <td class="price-highlight">1,700.-</td>
+                        <td class="price-highlight">3,000.-</td>
+                    </tr>
+                    <tr>
+                        <td>กลุ่ม 3 คน</td>
+                        <td>540.-</td>
+                        <td class="price-highlight">1,400.-</td>
+                        <td class="price-highlight">2,500.-</td>
+                    </tr>
+                    <tr>
+                        <td>กลุ่ม 4 คน</td>
+                        <td>600.-</td>
+                        <td class="price-highlight">1,200.-</td>
+                        <td class="price-highlight">2,100.-</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- Advanced Price -->
+        <div class="pricing-table-container">
+            <div class="pricing-header green">🎓 ตารางราคา Advanced (ม.ปลาย/สอบเข้า)</div>
+            <div class="table-responsive">
+                <table>
+                    <tr>
+                        <th>รูปแบบคลาส</th>
+                        <th>1 ชม.<br><small>(ราคารวม)</small></th>
+                        <th>10 ชม.<br><small>(ราคา/คน)</small></th>
+                        <th>20 ชม.<br><small>(ราคา/คน)</small></th>
+                    </tr>
+                    <tr>
+                        <td>เดี่ยว (1 คน)</td>
+                        <td>300.-</td>
+                        <td class="price-highlight">2,400.-</td>
+                        <td class="price-highlight">4,400.-</td>
+                    </tr>
+                    <tr>
+                        <td>กลุ่ม 2 คน</td>
+                        <td>500.-</td>
+                        <td class="price-highlight">2,100.-</td>
+                        <td class="price-highlight">3,800.-</td>
+                    </tr>
+                    <tr>
+                        <td>กลุ่ม 3 คน</td>
+                        <td>660.-</td>
+                        <td class="price-highlight">1,800.-</td>
+                        <td class="price-highlight">3,300.-</td>
+                    </tr>
+                    <tr>
+                        <td>กลุ่ม 4 คน</td>
+                        <td>800.-</td>
+                        <td class="price-highlight">1,600.-</td>
+                        <td class="price-highlight">2,900.-</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="note" style="text-align: center; margin-top: -10px; margin-bottom: 20px;">
+            * ราคา 1 ชั่วโมงแรกที่ชำระไป สามารถนำมาหักเป็นส่วนลดเมื่อสมัครคอร์ส 10 หรือ 20 ชั่วโมงต่อได้ทันที
+        </div>
+
+        <a href="https://lin.ee/PXN3EWz" class="cta-btn">💬 ทักแชทสอบถามคิว / จองเวลาเรียน</a>
+
+    </div>
+
+</body>
+</html>
